@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.DACFx3</id>
+    <version>1.0.1</version>
+    <title>Microsoft.DACFx3</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>DacFX Package, 
+Contens from SQL Server 11.0</description>
+    <summary>DacFX Package</summary>
+    <releaseNotes />
+    <copyright />
+    <language>en-US</language>
+    <references>
+      <reference file="Microsoft.Data.Tools.Contracts.11.dll" />
+      <reference file="Microsoft.Data.Tools.Schema.Sql.dll" />
+      <reference file="Microsoft.Data.Tools.Schema.Tasks.Sql.11.dll" />
+      <reference file="Microsoft.Data.Tools.Schema.Utilities.Sql.11.dll" />
+      <reference file="Microsoft.Data.Tools.Utilities.dll" />
+      <reference file="Microsoft.SqlServer.Dac.dll" />
+    </references>
+  </metadata>
+</package>
