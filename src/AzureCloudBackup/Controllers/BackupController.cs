@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using AzureCloudBackup.Core.Service;
 using AzureCloudBackup.Infrastructure;
+using AzureCloudBackup.ViewModel;
 using Microsoft.AspNet.SignalR;
 
 namespace AzureCloudBackup.Controllers
@@ -17,7 +18,9 @@ namespace AzureCloudBackup.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var viewModel = new BackupViewModel();
+
+            return View(viewModel);
         }
     }
 }

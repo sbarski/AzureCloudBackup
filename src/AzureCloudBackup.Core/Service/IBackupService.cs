@@ -5,11 +5,12 @@ using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 using AzureCloudBackup.Core.DTO;
+using AzureCloudBackup.Core.Model;
 
 namespace AzureCloudBackup.Core.Service
 {
     public interface IBackupService
     {
-        void Backup(string connectionString, string databaseName, Subject<string> messages);
+        void Backup(string connectionString, string databaseName, string blobStorageAccount, string blobStorageKey, ExportType exportType, Subject<string> messages);
     }
 }
