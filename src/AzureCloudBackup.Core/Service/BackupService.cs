@@ -27,7 +27,28 @@ namespace AzureCloudBackup.Core.Service
                 dacServices.Message += dacServices_Message;
                 dacServices.ProgressChanged += dacServices_ProgressChanged;
 
-                dacServices.ExportBacpac(@"c:\temp\file.bacpac", databaseName);
+                switch (exportType)
+                {
+                    case ExportType.Bacpac:
+                    {
+                        dacServices.ExportBacpac(@"c:\temp\file.bacpac", databaseName);
+                        break;
+                    }
+
+                    case ExportType.Dacpac:
+                    {
+                        var dacExtractOptions = new DacExtractOptions
+                        {
+                            ExtractApplicationScopedObjectsOnly = true,
+                            ExtractReferencedServerScopedElements = false,
+                            VerifyExtraction = true,
+                            Storage = DacSchemaModelStorageType.Memory
+                        };
+
+                        dacServices.Extract(@"c:\temp\file.dacpac", databaseName, "DACPAC", new Version(1, 0, 0), "Dacpac Extract", null, dacExtractOptions);
+                        break;
+                    }
+                }
             }
             catch (DacServicesException e)
             {
