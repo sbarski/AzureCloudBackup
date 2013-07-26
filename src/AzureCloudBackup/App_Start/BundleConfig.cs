@@ -10,15 +10,22 @@ namespace AzureCloudBackup.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery")
+            bundles.Add(new ScriptBundle("~/bundles/core")
                 .Include("~/Scripts/jquery-2.0.3.js")
-                .Include("~/Scripts/jquery.signalR-1.1.2.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap")
+                .Include("~/Scripts/knockout-2.3.0.js")
                 .Include("~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css")
+            bundles.Add(new ScriptBundle("~/bundles/signalr")
+                .Include("~/Scripts/jquery.signalR-1.1.2.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/azure-backup-client")
+                .Include("~/Scripts/Client/AzureBackupClient.js"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap")
                 .Include("~/Content/bootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap-responsive")
+                .Include("~/Content/bootstrap-responsive.css"));
         }
     }
 }

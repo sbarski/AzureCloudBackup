@@ -30,7 +30,11 @@ namespace AzureCloudBackup.Core.Service
             }
             catch (DacServicesException e)
             {
-                Debug.WriteLine("Error occurred: {0}. Inner Exception: {1}", e.Messages, e.InnerException);
+                _messages.OnNext(string.Format("Error occurred: {0}. Inner Exception: {1}", e.Messages, e.InnerException));
+            }
+            catch (ArgumentException e)
+            {
+                _messages.OnNext(string.Format("Could not parse parameters: {0}. Inner Exception: {1}", e.Message, e.InnerException));
             }
         }
 
