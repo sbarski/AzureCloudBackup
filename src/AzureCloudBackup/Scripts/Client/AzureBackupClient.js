@@ -4,6 +4,8 @@
 
         self.connectionString = ko.observable("");
         self.databaseName = ko.observable("");
+        self.blobStorageAccount = ko.observable("");
+        self.blobStorageKey = ko.observable("");
         self.messageList = ko.observableArray([]);
 
         self.addMessage = function (entry) {
@@ -36,7 +38,7 @@
 
     // Start the connection
     $.connection.hub.start().done(function () {
-        $("#broadcast").click(function () {
+        $("#download-backpac").click(function () {
 
             app.removeAll();
 

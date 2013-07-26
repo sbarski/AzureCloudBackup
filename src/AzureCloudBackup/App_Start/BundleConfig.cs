@@ -26,6 +26,9 @@ namespace AzureCloudBackup.App_Start
 
             bundles.Add(new StyleBundle("~/Content/bootstrap-responsive")
                 .Include("~/Content/bootstrap-responsive.css"));
+
+            bundles.Add(new StyleBundle("~/Content/site")
+                .Include("~/Content/site.css"));
         }
     }
 }
