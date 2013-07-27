@@ -19,6 +19,9 @@
         var azureViewModel = function() {
             var self = this;
 
+            var currentDate = new Date().toLocaleDateString().replace(/\//g, '-');
+
+            self.exportName = ko.observable("dbbackup-" + currentDate);
             self.connectionString = ko.observable("");
             self.databaseName = ko.observable("");
             self.blobStorageAccount = ko.observable("");
@@ -38,13 +41,13 @@
             };
 
             self.allFieldsEntered = ko.computed(function() {
-                return self.databaseName().length > 0 && self.connectionString().length > 0 && self.blobStorageAccount().length > 0 && self.blobStorageKey().length > 0;
+                return self.exportName().length > 0 && self.databaseName().length > 0 && self.connectionString().length > 0 && self.blobStorageAccount().length > 0 && self.blobStorageKey().length > 0;
             });
 
             self.download = function() {
                 self.removeAll();
 
-                backup.server.create(self.connectionString(), self.databaseName(), self.blobStorageAccount(), self.blobStorageKey(), $(event.target).data("export-type"));
+                backup.server.create(self.exportName(), self.connectionString(), self.databaseName(), self.blobStorageAccount(), self.blobStorageKey(), $(event.target).data("export-type"));
             };
         };
 

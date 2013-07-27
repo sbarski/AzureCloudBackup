@@ -16,7 +16,7 @@ namespace AzureCloudBackup.Core.Service
     {
         private Subject<string> _messages = null;
 
-        public void Backup(string connectionString, string databaseName, string blobStorageAccount, string blobStorageKey, ExportType exportType, Subject<string> messages)
+        public void Backup(string exportName, string connectionString, string databaseName, string blobStorageAccount, string blobStorageKey, ExportType exportType, Subject<string> messages)
         {
             try
             {

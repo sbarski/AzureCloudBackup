@@ -11,6 +11,6 @@ namespace AzureCloudBackup.Core.Service
 {
     public interface IBackupService
     {
-        void Backup(string connectionString, string databaseName, string blobStorageAccount, string blobStorageKey, ExportType exportType, Subject<string> messages);
+        void Backup(string exportName, string connectionString, string databaseName, string blobStorageAccount, string blobStorageKey, ExportType exportType, Subject<string> messages);
     }
 }

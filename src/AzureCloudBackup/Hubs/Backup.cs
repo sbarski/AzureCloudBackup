@@ -23,13 +23,13 @@ namespace AzureCloudBackup.Hubs
             _backupService = backupService;
         }
 
-        public void Create(string connectionString, string databaseName, string blobStorageAccount, string blobStorageKey, ExportType exportType)
+        public void Create(string exportName, string connectionString, string databaseName, string blobStorageAccount, string blobStorageKey, ExportType exportType)
         {
             var messages = new Subject<string>();
 
             messages.Subscribe(m => Clients.All.broadcastMessage(m));
 
-            _backupService.Backup(connectionString: connectionString, databaseName: databaseName, blobStorageAccount: blobStorageAccount, blobStorageKey: blobStorageKey, exportType: exportType, messages: messages);
+            _backupService.Backup(exportName:exportName, connectionString: connectionString, databaseName: databaseName, blobStorageAccount: blobStorageAccount, blobStorageKey: blobStorageKey, exportType: exportType, messages: messages);
         }
     }
 }
